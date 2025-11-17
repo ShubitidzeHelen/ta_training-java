@@ -32,21 +32,25 @@ public class LoginTest extends  BaseTest {
             description = "UC-1: Verify error message when credentials are cleared")
     public void testLoginWithEmptyCredentials(String username, String password) {
         logger.info("TC-UC1: Testing login with empty credentials");
-        logger.info("Username to type: {}, Password to type: {}", username, password);
+        logger.info("Given I am on the login page");
         LoginPage loginPage = new LoginPage(DriverManager.getDriver());
 
         // Type credentials
+        logger.info("When I enter username '{}' and password '{}'", username, password);
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
 
         // Clear inputs
+        logger.info("And I clear both input fields");
         loginPage.clearUsername();
         loginPage.clearPassword();
 
         // Click Login
+        logger.info("And I click the Login button");
         loginPage.clickLogin();
 
         // Verify error message
+        logger.info("Then I should see an error saying Username is required");
         assertThat(loginPage.isErrorDisplayed())
                 .as("Error message should be displayed")
                 .isTrue();
@@ -72,21 +76,24 @@ public class LoginTest extends  BaseTest {
             description = "UC-2: Verify error message when password is cleared")
     public void testLoginWithMissingPassword(String username, String password) {
         logger.info("TC-UC2: Testing login with missing password");
-        logger.info("Username: {}", username);
-
+        logger.info("Given I am on the login page");
         LoginPage loginPage = new LoginPage(DriverManager.getDriver());
 
         // Type credentials
+        logger.info("When I enter username '{}' and password '{}'", username, password);
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
 
         // Clear password
+        logger.info("And I clear password field");
         loginPage.clearPassword();
 
         // Click Login
+        logger.info("And I click the Login button");
         loginPage.clickLogin();
 
         // Verify error message
+        logger.info("Then I should see an error saying Password is required");
         assertThat(loginPage.isErrorDisplayed())
                 .as("Error message should be displayed")
                 .isTrue();
@@ -112,18 +119,21 @@ public class LoginTest extends  BaseTest {
             description = "UC-3: Verify successful login with valid credentials")
     public void testLoginWithValidCredentials(String username, String password) {
         logger.info("TC-UC3: Testing login with valid credentials");
-        logger.info("Username: {}, Password: {}", username, password);
 
+        logger.info("Given I am on the login page");
         LoginPage loginPage = new LoginPage(DriverManager.getDriver());
 
         // Type credentials
+        logger.info("When I enter username '{}' and password '{}'", username, password);
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
 
         // Click Login
+        logger.info("And I click the Login button");
         InventoryPage inventoryPage = loginPage.clickLogin();
 
         // Validate moving to the next page and the title "Swag Labs" in the dashboard
+        logger.info("Then I should go to Products Page and see Swag Labs in the title");
         inventoryPage.waitForInventoryPageToLoad();
         assertThat(inventoryPage.getCurrentUrl())
                 .as("URL should be: "+TestDataConstants.INVENTORY_PAGE_URL)
