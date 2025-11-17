@@ -3,3 +3,19 @@
 /workspace.xml
 # Environment-dependent path to Maven home directory
 /mavenHomeManager.xml
+
+/.idea/
+/*.iml
+/out/
+
+/target/
+
+*.log
+/logs/
+test-output/
+
+.DS_Store
+Thumbs.db
+
+*.tmp
+*.bak
