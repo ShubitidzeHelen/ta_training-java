@@ -1,10 +1,7 @@
 package com.epam.training.elene_shubitidze.saucedemo.pages;
 
 import com.epam.training.elene_shubitidze.saucedemo.utils.ConfigReader;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -120,7 +117,7 @@ public class BasePage {
     protected boolean isDisplayed(By locator) {
         try {
             return waitForVisibility(locator).isDisplayed();
-        } catch (Exception e) {
+        } catch (TimeoutException e) {
             logger.debug("Element not displayed: {}", e.getMessage());
             return false;
         }

@@ -2,7 +2,6 @@ package com.epam.training.elene_shubitidze.saucedemo.data;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Test data constants for SauceDemo website

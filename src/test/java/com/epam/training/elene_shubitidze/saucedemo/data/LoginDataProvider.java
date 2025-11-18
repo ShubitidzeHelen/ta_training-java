@@ -11,13 +11,13 @@ import org.testng.annotations.DataProvider;
 public class LoginDataProvider {
 
     /**
-     * Provides random username and password combinations
+     * Provides invalid username and password combinations
      * Can be used in different negative test scenarios
      *
      * @return Object[][] with username, password
      */
-    @DataProvider(name = "randomCredentials", parallel = true)
-    public static Object[][] getRandomCredentials() {
+    @DataProvider(name = "invalidCredentials", parallel = true)
+    public static Object[][] getInvalidCredentials() {
         return new Object[][] {
                 {"any_username", "any_password"},
                 {"test_user", "test_pass"}

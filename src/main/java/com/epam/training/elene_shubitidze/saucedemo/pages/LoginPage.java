@@ -39,7 +39,7 @@ public class LoginPage extends BasePage {
      * @param password the password to enter
      */
     public void enterPassword(String password) {
-        logger.debug("Entering password: {}", password);
+        logger.debug("Entering password: ***");
         type(passwordField, password);
     }
 

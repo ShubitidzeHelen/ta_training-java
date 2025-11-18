@@ -28,7 +28,7 @@ public class LoginTest extends  BaseTest {
      * 4. Verify an error message: "Username is required"
      */
 
-    @Test(dataProvider = "randomCredentials", dataProviderClass = LoginDataProvider.class,
+    @Test(dataProvider = "invalidCredentials", dataProviderClass = LoginDataProvider.class,
             description = "UC-1: Verify error message when credentials are cleared")
     public void testLoginWithEmptyCredentials(String username, String password) {
         logger.info("TC-UC1: Testing login with empty credentials");
@@ -36,7 +36,7 @@ public class LoginTest extends  BaseTest {
         LoginPage loginPage = new LoginPage(DriverManager.getDriver());
 
         // Type credentials
-        logger.info("When I enter username '{}' and password '{}'", username, password);
+        logger.info("When I enter username '{}' and password: ***", username);
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
 
@@ -71,7 +71,7 @@ public class LoginTest extends  BaseTest {
      * 5. Verify error message: "Password is required"
      */
 
-    @Test(dataProvider = "randomCredentials", dataProviderClass = LoginDataProvider.class,
+    @Test(dataProvider = "invalidCredentials", dataProviderClass = LoginDataProvider.class,
             description = "UC-2: Verify error message when password is cleared")
     public void testLoginWithMissingPassword(String username, String password) {
         logger.info("TC-UC2: Testing login with missing password");
@@ -79,7 +79,7 @@ public class LoginTest extends  BaseTest {
         LoginPage loginPage = new LoginPage(DriverManager.getDriver());
 
         // Type credentials
-        logger.info("When I enter username '{}' and password '{}'", username, password);
+        logger.info("When I enter username '{}' and password: ***", username);
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
 
@@ -123,7 +123,7 @@ public class LoginTest extends  BaseTest {
         LoginPage loginPage = new LoginPage(DriverManager.getDriver());
 
         // Type credentials
-        logger.info("When I enter username '{}' and password '{}'", username, password);
+        logger.info("When I enter username '{}' and password: ***", username);
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
 
