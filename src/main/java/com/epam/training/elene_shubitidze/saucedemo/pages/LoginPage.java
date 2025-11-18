@@ -29,7 +29,7 @@ public class LoginPage extends BasePage {
      * @param username the username to enter
      */
     public void enterUsername(String username) {
-        logger.info("Entering username: {}", username);
+        logger.debug("Entering username: {}", username);
         type(usernameField, username);
     }
 
@@ -39,7 +39,7 @@ public class LoginPage extends BasePage {
      * @param password the password to enter
      */
     public void enterPassword(String password) {
-        logger.info("Entering password: {}", password);
+        logger.debug("Entering password: {}", password);
         type(passwordField, password);
     }
 
@@ -48,7 +48,7 @@ public class LoginPage extends BasePage {
      * Clears the username input field.
      */
     public void clearUsername() {
-        logger.info("Clearing username");
+        logger.debug("Clearing username");
         clear(usernameField);
     }
 
@@ -57,7 +57,7 @@ public class LoginPage extends BasePage {
      * Clears the password input field.
      */
     public void clearPassword() {
-        logger.info("Clearing password");
+        logger.debug("Clearing password");
         clear(passwordField);
     }
 
@@ -68,8 +68,7 @@ public class LoginPage extends BasePage {
      * @return InventoryPage object representing the next page after login
      */
     public InventoryPage clickLogin () {
-        logger.info("Clicking login button");
-        waitForClickability(loginButton).click();
+        click(loginButton);
         return new InventoryPage(driver);
     }
 
