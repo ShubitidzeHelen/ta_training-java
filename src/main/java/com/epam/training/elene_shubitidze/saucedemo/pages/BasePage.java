@@ -92,7 +92,7 @@ public class BasePage {
      */
     protected void type(By locator, String text) {
         logger.debug("Typing text into element: {}", locator);
-        waitForVisibility(locator).sendKeys(text);
+        waitForClickability(locator).sendKeys(text);
     }
 
     /**

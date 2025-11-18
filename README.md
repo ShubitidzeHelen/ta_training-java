@@ -59,3 +59,8 @@ To execute the test suite in parallel as configured in `testng.xml`:
 
 ```bash
 mvn clean test
+
+ Using IntelliJ
+Run `testng.xml`to run tests in both Chrome and Firefox:
+Note: Running a single test class from IntelliJ will only run Chrome by default due to the @Optional parameter.
+
