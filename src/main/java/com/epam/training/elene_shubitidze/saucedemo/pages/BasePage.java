@@ -105,11 +105,11 @@ public class BasePage {
     protected void clear(By locator) {
         logger.debug("Clearing element: {}", locator);
         String os = System.getProperty("os.name").toLowerCase(Locale.ROOT);
-
         Keys selectAll = os.contains("mac") ? Keys.COMMAND : Keys.CONTROL;
 
-        waitForVisibility(locator).sendKeys(selectAll + "a");
-        waitForVisibility(locator).sendKeys(Keys.DELETE);
+        WebElement element = waitForVisibility(locator);
+        element.sendKeys(Keys.chord(selectAll, "a"));
+        element.sendKeys(Keys.DELETE);
     }
 
     /**

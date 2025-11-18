@@ -44,7 +44,6 @@ public class LoginTest extends  BaseTest {
         logger.info("And I clear both input fields");
         loginPage.clearUsername();
         loginPage.clearPassword();
-
         // Click Login
         logger.info("And I click the Login button");
         loginPage.clickLogin();
@@ -55,7 +54,7 @@ public class LoginTest extends  BaseTest {
                 .as("Error message should be displayed")
                 .isTrue();
         assertThat(loginPage.getErrorMessage())
-                .as("Error message text")
+                .as("Displayed login error should match expected text")
                 .isEqualTo(TestDataConstants.ERROR_USERNAME_REQUIRED);
 
         logger.info("Test passed: Error message '{}' displayed correctly",
@@ -98,7 +97,7 @@ public class LoginTest extends  BaseTest {
                 .as("Error message should be displayed")
                 .isTrue();
         assertThat(loginPage.getErrorMessage())
-                .as("Error message text")
+                .as("Displayed login error should match expected text")
                 .isEqualTo(TestDataConstants.ERROR_PASSWORD_REQUIRED);
 
         logger.info("Test passed: Error message '{}' displayed correctly",
@@ -134,7 +133,11 @@ public class LoginTest extends  BaseTest {
 
         // Validate moving to the next page and the title "Swag Labs" in the dashboard
         logger.info("Then I should go to Products Page and see Swag Labs in the title");
-        inventoryPage.waitForInventoryPageToLoad();
+
+        assertThat(inventoryPage.isInventoryPageLoaded())
+                .as("Inventory page should load")
+                .isTrue();
+
         assertThat(inventoryPage.getCurrentUrl())
                 .as("URL should be: "+TestDataConstants.INVENTORY_PAGE_URL)
                 .isEqualTo(TestDataConstants.INVENTORY_PAGE_URL);
